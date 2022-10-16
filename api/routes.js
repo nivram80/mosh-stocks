@@ -1,6 +1,6 @@
 import express from 'express';
-import { accountsList, accountsCreate } from './accounts.js';
-import { positionsList, positionsCreate } from './positions.js';
+import { accountsList, accountsCreate } from './controllers/accounts.js';
+import { positionsList, positionsCreate } from './controllers/positions.js';
 
 export const router = express.Router();
 

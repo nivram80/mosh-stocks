@@ -1,4 +1,4 @@
-import { getPositions, createPosition } from './models/positions.js';
+import { getPositions, createPosition } from '../models/positions.js';
 
 export const positionsList = async (req, res) => {
   const results = await getPositions();

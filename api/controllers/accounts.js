@@ -1,4 +1,4 @@
-import { getAccounts, createAccount } from './models/accounts.js';
+import { getAccounts, createAccount } from '../models/accounts.js';
 
 export const accountsList = async (req, res) => {
   const results = await getAccounts();

@@ -1,6 +1,6 @@
 import xid from 'xid-js';
 import { connection } from '../connect.js'
-import { positionsCreateSQL, getPositionsSQL } from '../sql.js';
+import { positionsCreateSQL, getPositionsSQL } from './sql.js';
 
 export const getPositions = async () => {
   try {
