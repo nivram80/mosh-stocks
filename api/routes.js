@@ -8,4 +8,4 @@ router.get('/accountsList', accountsList);
 router.post('/accountsCreate', accountsCreate);
 
 router.get('/positionsList', positionsList);
-router.post('positionsCreate', positionsCreate);
+router.post('/positionsCreate', positionsCreate);

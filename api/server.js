@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors'
 import { router } from './routes.js';
 import { initDB } from './connect.js';
 
@@ -9,7 +10,8 @@ app.use(bodyParser.json());
 
 initDB();
 
-app.use('/', router)
+app.use(cors());
+app.use('/', router);
 
 const server = app.listen(8010, () => {
   const port = server.address().port;
