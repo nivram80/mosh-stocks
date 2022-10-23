@@ -27,7 +27,7 @@ export const apiService = async (endpoint, body) => {
   let options = updateOptions(endpoint, body);
   try {
     const resp = await fetch(`${hostURL}/${endpoint}`, options)
-    return resp;
+    return await resp.json();
   } catch (err) {
     return err;
   }

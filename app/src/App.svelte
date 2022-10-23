@@ -24,7 +24,7 @@
   const getAccounts = async () => {
     try {
       const resp = await apiService('accountsList');
-      accounts = await resp.json();
+      accounts = resp;
     } catch (err) {
       console.log(err);
     }
@@ -32,9 +32,9 @@
 </script>
 
 <main>
-  <form on:submit|preventDefault={onSubmit} bind:this={formEl}>
-    <label for="accountName">Account Name</label><br>
-    <input type="text" name="name" id="accountName" /><br>
+  <form on:submit|preventDefault={onSubmit} bind:this={formEl} autocomplete="off">
+    <label for="name">Account Name</label><br>
+    <input type="text" name="name" id="name" autocomplete="off" /><br>
     <button type="submit">Submit</button>
   </form>
 
