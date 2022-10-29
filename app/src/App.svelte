@@ -10,6 +10,16 @@
     getAccounts();
   });
 
+  const onDelete = async (id) => {
+    console.log('deleting account...')
+    // try {
+    //   await apiService('accountsDelete', {id: id});
+    //   getAccounts();
+    // } catch (err) {
+    //   console.log(err);
+    // }
+  }
+
   const onSubmit = async (e) => {
     const payload = buildFormPayload(e.target)
     try {
@@ -40,7 +50,7 @@
 
   <ul class="accounts">
     {#each accounts as account (account.id)}
-      <li>{account.name}</li>
+      <li on:click={() => onDelete(account.id)} on:keypress={() => onDelete(account.id)}>{account.name}</li>
     {/each}
   </ul>
 </main>

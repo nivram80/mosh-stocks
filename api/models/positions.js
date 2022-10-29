@@ -24,3 +24,15 @@ export const createPosition = async (symbol, account_id, number_of_shares, cost_
     return 'Error creating position in DB';
   }
 };
+
+export const deletePosition = async (id) => {
+  try {
+    const [results] = await connection.promise().query(positionsDeleteSQL, [id]);
+    if (results.affectedRows > 0) {
+      return { success: true };
+    }
+  } catch (err) {
+    console.error(err);
+    return 'Error deleting position in DB';
+  }
+};
