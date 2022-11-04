@@ -1,4 +1,5 @@
 :root {
+  /* Dark Mode is the default */
   --mosh-color: rgba(255, 255, 255, 0.87);
   --mosh-background-color: #242424;
   --mosh-primary-color: #50c960;
