@@ -6,6 +6,7 @@
   --mosh-primary-color-hover: #63d76d;
   --mosh-danger-color: #f80101;
   --mosh-border-color: #75747a;
+  --mosh-button-font-color: #fff;
   
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 12px;
@@ -33,7 +34,6 @@
     --mosh-border-color: #213547;
   }
 }
-
 a {
   font-weight: 500;
   color: var(--mosh-primary-color);
@@ -42,7 +42,6 @@ a {
 a:hover {
   color: var(--mosh-primary-color-hover);
 }
-
 body {
   display: flex;
   flex-direction: row;
@@ -50,23 +49,26 @@ body {
   min-height: 100vh;
   margin: 0;
 }
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-
 .card {
   padding: 2em;
 }
-
 #app {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
 }
-
+.column1 {
+  width: 150px;
+  padding-right: 2em;
+ }
+ .column2 {
+  width: auto;
+ }
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -74,7 +76,8 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--mosh-primary-color);
+  color: var(--mosh-button-font-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -84,4 +87,25 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+.account {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 36px;
+  margin-bottom: 4px;
+  border: 1px solid rgb(117, 116, 122);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.account-badge {
+  width: 10px;
+  height: 100%;
+  background-color: transparent;
+}
+.account-badge.selected {
+  background-color: var(--mosh-primary-color)
+}
+.account-name {
+  margin-left: 8px;
 }

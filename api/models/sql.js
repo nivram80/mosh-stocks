@@ -2,6 +2,9 @@
 export const accountsCreateSQL = `
   INSERT INTO accounts (id, name) VALUES (?, ?)
 `;
+export const accountsEditSQL = `
+  UPDATE accounts SET name = ? WHERE id = ?
+`;
 export const getAccountsSQL = `
   SELECT * FROM accounts
 `;

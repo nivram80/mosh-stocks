@@ -1,6 +1,6 @@
 import xid from 'xid-js';
 import { connection } from '../connect.js'
-import { accountsCreateSQL, getAccountsSQL, accountsDeleteSQL } from './sql.js';
+import { accountsCreateSQL, getAccountsSQL, accountsDeleteSQL, accountsEditSQL } from './sql.js';
 
 export const getAccounts = async () => {
   try {
@@ -22,6 +22,18 @@ export const createAccount = async (name) => {
   } catch (err) {
     console.error(err);
     return 'Error creating account in DB';
+  }
+};
+
+export const editAccount = async (id, name) => {
+  try {
+    const [results] = await connection.promise().query(accountsEditSQL, [name, id]);
+    if (results.affectedRows > 0) {
+      return { success: true };
+    }
+  } catch (err) {
+    console.error(err);
+    return 'Error editing account in DB';
   }
 };
 

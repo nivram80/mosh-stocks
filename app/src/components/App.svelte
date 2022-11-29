@@ -1,45 +1,35 @@
 <script>
-  import { apiService } from "../api/service";
-  import { buildFormPayload } from "../utils";
-  import AccountList from "./AccountList.svelte";
-  import PositionList from "./PositionList.svelte";
+  import { onMount } from "svelte";
+  import page from "page";
+  import Positions from "./Positions.svelte";
+  import Accounts from "./Accounts.svelte";
 
-  let formEl;
+  let ctx = '';
+  let route = '';
 
-  const onDelete = async (id) => {
-    console.log('deleting account...')
-    // try {
-    //   await apiService('accountsDelete', {id: id});
-    //   getAccounts();
-    // } catch (err) {
-    //   console.log(err);
-    // }
+  onMount(() => {
+    initRoutes();
+  })
+
+  const initRoutes = () => {
+    page.base('/#');
+    page('/positions', (ctx) => load('positions', ctx));
+    page('/accounts', (ctx) => load('accounts', ctx));
+    page();
   }
 
-  const onSubmit = async (e) => {
-    const payload = buildFormPayload(e.target)
-    try {
-      await apiService('accountsCreate', payload);
-      formEl.reset();
-      // getAccounts();
-    } catch (err) {
-      console.log(err);
-    }
+  const load = (r, c) => {
+    route = r;
+    ctx = c
   }
 </script>
 
 <main>
-  <div class="column column1">
-    <AccountList />
-  </div>
-  <div class="column column2">
-    <PositionList />
-    <!-- <form on:submit|preventDefault={onSubmit} bind:this={formEl} autocomplete="off">
-      <label for="name">Account Name</label><br>
-      <input type="text" name="name" id="name" autocomplete="off" /><br>
-      <button type="submit">Submit</button>
-    </form> -->
-  </div>
+  {#if route === 'positions'}
+    <Positions />
+  {:else if route === 'accounts'}
+    <Accounts />
+  {/if}
 </main>
 
 <style>
@@ -48,15 +38,5 @@
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;
- }
- .column1 {
-  width: 150px;
-  padding-right: 2em;
- }
- .column2 {
-  width: auto;
- }
- button {
-  margin-top: 4px;
  }
 </style>

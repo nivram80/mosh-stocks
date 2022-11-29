@@ -7,6 +7,9 @@ const postEndpoints = [
   'accountsCreate',
   'positionsCreate'
 ];
+const putEndpoints = [
+  'accountsEdit'
+];
 const deleteEndpoints = [
   'accountsDelete',
   'positionsDelete'
@@ -20,6 +23,9 @@ const updateOptions = (endpoint, body) => {
   } else if (deleteEndpoints.includes(endpoint)) {
     options.headers = { 'Content-Type': 'application/json' }
     options.method = 'DELETE'
+  } else if (putEndpoints.includes(endpoint)) {
+    options.headers = { 'Content-Type': 'application/json' }
+    options.method = 'PUT'
   } else {
     options.headers = { Accept: 'application/json' }
     options.method = 'GET'
