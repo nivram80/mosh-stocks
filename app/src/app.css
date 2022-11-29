@@ -81,8 +81,15 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+button.danger {
+  background-color: transparent;
+  color: var(--mosh-danger-color);
+}
 button:hover {
   border-color: #64ff79;
+}
+button.danger:hover {
+  border-color: var(--mosh-danger-color);
 }
 button:focus,
 button:focus-visible {
