@@ -6,13 +6,11 @@ export const accountsList = async (req, res) => {
 }
 
 export const accountsCreate = async (req, res) => {
-  console.log('req.body: ', req.body);
   const results = await createAccount(req.body.name)
   return res.send(results);
 }
 
 export const accountsEdit = async (req, res) => {
-  console.log('req.body: ', req.body);
   const results = await editAccount(req.body.id, req.body.name)
   return res.send(results);
 }

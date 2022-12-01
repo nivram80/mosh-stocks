@@ -81,6 +81,10 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+button.secondary {
+  background-color: transparent;
+  color: var(--mosh-color);
+}
 button.danger {
   background-color: transparent;
   color: var(--mosh-danger-color);

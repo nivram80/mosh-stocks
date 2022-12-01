@@ -20,6 +20,10 @@
     }
   }
 
+  const onAddAccount = () => {
+    selectedAccount = {};
+  }
+
   const onDelete = async (a) => {
     if (confirm(`Are you sure you want to delete the account: ${a.name}`)) {
       try {
@@ -62,6 +66,9 @@
       </div>
     {/each}
   </div>
+  {#if Object.keys(selectedAccount).length > 0}
+    <button class="secondary" on:click={onAddAccount} on:input={onAddAccount}>+ Add Account</button>
+  {/if}
 </div>
 
 <div class="column column2">

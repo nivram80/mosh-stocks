@@ -13,8 +13,8 @@
 
   const initRoutes = () => {
     page.base('/#');
-    page('/positions', (ctx) => load('positions', ctx));
     page('/accounts', (ctx) => load('accounts', ctx));
+    page('/positions', (ctx) => load('positions', ctx));
     page();
   }
 
@@ -24,6 +24,12 @@
   }
 </script>
 
+<header>
+  <nav>
+    <a href="/#/accounts">Accounts</a>
+    <a href="/#/positions">Positions</a>
+  </nav>
+</header>
 <main>
   {#if route === 'positions'}
     <Positions />
@@ -39,4 +45,17 @@
   justify-content: flex-start;
   width: 100%;
  }
+header {
+  width: 100%;
+  height: 50px;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+}
+nav a {
+  margin-right: 15px;
+}
 </style>
